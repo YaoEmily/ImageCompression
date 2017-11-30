@@ -5,4 +5,5 @@ function [result] = intraPreDC(currentBlock, blockSize)
             result(i, j) = mean(currentBlock(:));
         end
     end
+    result = round(result);
 end

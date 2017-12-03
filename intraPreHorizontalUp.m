@@ -1,0 +1,19 @@
+function [result] = intraPreHorizontalUp(blockSize, preBlock1)
+    result = zeros(blockSize, blockSize);
+    result(1, 1) = round(preBlock1(1, 4) + preBlock1(2, 4)) / 2;
+    result(1, 2) = round(preBlock1(1, 4) + preBlock1(2, 4)*2 + preBlock1(3, 4)) / 4;
+    result(1, 3) = round(preBlock1(2, 4) + preBlock1(3, 4)) / 2;
+    result(1, 4) = round(preBlock1(2, 4) + preBlock1(3, 4)*2 + preBlock1(4, 4)) / 4;
+    result(2, 1) = round(preBlock1(2, 4) + preBlock1(3, 4)) / 2;
+    result(2, 2) = round(preBlock1(2, 4) + preBlock1(3, 4)*2 + preBlock1(4, 4)) / 4;
+    result(2, 3) = round(preBlock1(3, 4) + preBlock1(4, 4)) / 2;
+    result(2, 4) = round(preBlock1(3, 4) + preBlock1(4, 4)*3) / 4;
+    result(3, 1) = round(preBlock1(3, 4) + preBlock1(4, 4)) / 2;
+    result(3, 2) = round(preBlock1(3, 4) + preBlock1(4, 4)*3) / 4;
+    result(3, 3) = preBlock1(4, 4);
+    result(3, 4) = preBlock1(4, 4);
+    result(4, 1) = preBlock1(4, 4);
+    result(4, 2) = preBlock1(4, 4);
+    result(4, 3) = preBlock1(4, 4);
+    result(4, 4) = preBlock1(4, 4);
+end

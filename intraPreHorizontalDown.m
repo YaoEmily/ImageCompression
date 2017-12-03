@@ -1,0 +1,19 @@
+function [result] = intraPreHorizontalDown(blockSize, preBlock1, preBlock2, preBlock3)
+    result = zeros(blockSize, blockSize);
+    result(1, 1) = round(preBlock1(4, 4) + preBlock3(1, 4)) / 2;
+    result(1, 2) = round(preBlock3(1, 4) + preBlock1(4, 4)*2 + preBlock2(4, 1)) / 4;
+    result(1, 3) = round(preBlock1(4, 4) + preBlock2(4, 1)*2 + preBlock2(4, 2)) / 4;
+    result(1, 4) = round(preBlock2(4, 1) + preBlock2(4, 2)*2 + preBlock2(4, 3)) / 4;
+    result(2, 1) = round(preBlock3(1, 4) + preBlock3(2, 4)) / 2;
+    result(2, 2) = round(preBlock1(4, 4) + preBlock3(1, 4)*2 + preBlock3(2, 4)) / 4;
+    result(2, 3) = round(preBlock1(4, 4) + preBlock3(1, 4)) / 2;
+    result(2, 4) = round(preBlock3(1, 4) + preBlock1(4, 4)*2 + preBlock2(4, 1)) / 4;
+    result(3, 1) = round(preBlock3(2, 4) + preBlock3(3, 4)) / 2;
+    result(3, 2) = round(preBlock3(1, 4) + preBlock3(2, 4)*2 + preBlock3(3, 4)) / 4;
+    result(3, 3) = round(preBlock3(1, 4) + preBlock3(2, 4)) / 2;
+    result(3, 4) = round(preBlock1(4, 4) + preBlock3(1, 4)*2 + preBlock3(2, 4)) / 4;
+    result(4, 1) = round(preBlock3(4, 3) + preBlock3(4, 4)) / 2;
+    result(4, 2) = round(preBlock3(2, 4) + preBlock3(3, 4)*2 + preBlock3(4, 4)) / 4;
+    result(4, 3) = round(preBlock3(2, 4) + preBlock3(3, 4)) / 2;
+    result(4, 4) = round(preBlock3(1, 4) + preBlock3(2, 4)*2 + preBlock3(3, 4)) / 4;
+end

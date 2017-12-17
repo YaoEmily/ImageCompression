@@ -1,9 +1,5 @@
-function [result] = intraPreDC(currentBlock, blockSize)
+function [result] = intraPreDC(blockSize, preBlock1, preBlock2)
     result = zeros(blockSize, blockSize);
-    for i = 1:blockSize
-        for j = 1:blockSize
-            result(i, j) = mean(currentBlock(:));
-        end
-    end
-    result = round(result);
+    mu = (sum(preBlock1(8, :)) + sum(preBlock2(:, 8)))/16;
+    result(:, :) = round(mu);
 end

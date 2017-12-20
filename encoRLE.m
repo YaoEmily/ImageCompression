@@ -4,9 +4,9 @@ function [result] = encoRLE(z)
     num_zeros = 0;
     % 将Z型扫描后的数据进行分组
     for i=1:len
-        if z(i)==0 && num_zeros<16
+        if z(i)==0 && num_zeros<15
             num_zeros = num_zeros + 1;
-        elseif z(i)==0 && num_zeros==16
+        elseif z(i)==0 && num_zeros==15
             result(sum, 1) = 15;
             result(sum, 2) = 0;
             sum = sum + 1;
@@ -21,6 +21,7 @@ function [result] = encoRLE(z)
     
     % 将RLE尾部全0去掉
     [m, ~] = size(result);
+    tmp = m;
     for i=m:-1:1
         if result(i, 2)~=0
             tmp = i;

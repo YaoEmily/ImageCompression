@@ -131,10 +131,5 @@ figure(3);
 subplot(1, 2, 1); imshow(yOri(:,:,1)); title('original image');
 subplot(1, 2, 2); imshow(uint8(resImage)); title('compressed image');
 fprintf('psnr is %f, ssim is %f\n', psnr(yOri, uint8(resImage)), ssim(yOri, uint8(resImage)));
-fprintf('the size of the reconstructed image is %d.\n', lenImage);
-fprintf('the compression ratio is %f.\n', lenImage/(mOri*nOri*8));
-
-% Éú³ÉJPEGÍ¼Ïñ
-imwrite(yOri, 'bird_GT2.jpg', 'Quality', 1);
-JPEG = imread('bird_GT2.jpg');
-psnr_JPEG = psnr(yOri, JPEG); 
+fprintf('the size of the reconstructed image is %d.\n', ceil(lenImage/8));
+fprintf('the compression ratio is %f.\n', (mOri*nOri*8)/lenImage);
